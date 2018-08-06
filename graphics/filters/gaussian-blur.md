@@ -209,3 +209,5 @@ This means that there are a few things that may improve performance:
     - This also reduces the area of the blur kernel by a similar amount.
     - By balancing the downscaling and blur radius, you can achieve optically similar results which are still smooth, but far more performant - at the cost of a small amount of detail.
 - If all else fails, try rewriting it in a different language such as C (or, for the clinically insane, try Assembly!)
+
+Of course, you could always try a different algorithm, such as box blur. These algorithms may be faster, depending on your specific use case.
