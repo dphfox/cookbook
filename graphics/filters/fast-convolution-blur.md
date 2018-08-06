@@ -1,4 +1,4 @@
-# Fast Convolution Blur
+# Fast (Convolution) Blur
 
 Difficulty: 2 / 5
 
