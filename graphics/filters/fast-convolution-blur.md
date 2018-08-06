@@ -72,7 +72,7 @@ public class FastBlur {
 		return fastBoxBlurY(fastBoxBlurX(input, radius, edgeFill), radius, edgeFill);
 	}
 	
-	// gamma correct box blur on the x axis
+	// box blur on the x axis
 	public static BufferedImage fastBoxBlurX(BufferedImage input, int radius, EdgeFill edgeFill) {
 		// size of the actual box blur
 		int size = radius*2 + 1;
