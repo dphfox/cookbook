@@ -35,7 +35,7 @@ public class FastBlur {
 	// how many convolutions (number of times to apply blur)
 	public static final int CONVOLUTIONS = 3;
 	// sigmaRatio: the ratio of sigma to blur radius (this value works pretty well)
-	public static final double sigmaRatio = 9/16d, GAMMA = 1d;
+	public static final double sigmaRatio = 9/16d;
 	
 	// applies fast blur to the input image, with the given radius and outside pixel handling
 	public static BufferedImage fastConvolutionBlur(BufferedImage input, int radius, EdgeFill edgeFill) {
