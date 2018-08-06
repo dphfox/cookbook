@@ -9,6 +9,8 @@ Gaussian Blur is a simple symmetrical blurring algorithm which produces very smo
 
 ![Imgur](https://i.imgur.com/FKBfqCY.png)
 
+The basic idea is that you can calculate a blur kernel's weights using a Gaussian equation. This equation takes x and y coordinates, and a sigma value that controls the blur's 'quality'. I found that `(9/16 * radius)` works well as a sigma value. From there, it works identically to any other kernel-based blurring algorithms.
+
 ## Implementation
 
 ### Blur.java
@@ -190,3 +192,20 @@ public class Bitmaps {
 ```
 
 (yes I use tab characters, fite me)
+
+## Optimisations
+
+Gaussian Blur, like many blurs, is not super fast. There are some things worth considering:
+
+- Gaussian Blur's slowness scales with the area of the input image
+- Gaussian Blur's slowness also scales with the area of the blur kernel
+
+This means that there are a few things that may improve performance:
+
+- Blurring large images reduces performance. Try to limit blurring to smaller images.
+- Also, try to limit the blur radius. This can also help performance.
+- If you need a larger blur radius, try downscaling the input image, applying a smaller blur, and upscaling again (bilinear scaling works well here).
+    - This reduces the area of the input image by (downscale factor)^2, which is brilliant
+    - This also reduces the area of the blur kernel by a similar amount.
+    - By balancing the downscaling and blur radius, you can achieve optically similar results which are still smooth, but far more performant - at the cost of a small amount of detail.
+- If all else fails, try rewriting it in a different language such as C (or, for the clinically insane, try Assembly!)
