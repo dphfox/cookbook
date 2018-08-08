@@ -1,4 +1,4 @@
-# Fast Convolution Blur
+# Fast (Convolution) Blur
 
 Difficulty: 2 / 5
 
@@ -35,7 +35,7 @@ public class FastBlur {
 	// how many convolutions (number of times to apply blur)
 	public static final int CONVOLUTIONS = 3;
 	// sigmaRatio: the ratio of sigma to blur radius (this value works pretty well)
-	public static final double sigmaRatio = 9/16d, GAMMA = 1d;
+	public static final double sigmaRatio = 9/16d;
 	
 	// applies fast blur to the input image, with the given radius and outside pixel handling
 	public static BufferedImage fastConvolutionBlur(BufferedImage input, int radius, EdgeFill edgeFill) {
@@ -72,7 +72,7 @@ public class FastBlur {
 		return fastBoxBlurY(fastBoxBlurX(input, radius, edgeFill), radius, edgeFill);
 	}
 	
-	// gamma correct box blur on the x axis
+	// box blur on the x axis
 	public static BufferedImage fastBoxBlurX(BufferedImage input, int radius, EdgeFill edgeFill) {
 		// size of the actual box blur
 		int size = radius*2 + 1;
